@@ -1,0 +1,15 @@
+package com.yzn.SAML.model.enums;
+
+public enum LaunderingType {
+    NORMAL_CASH_DEPOSITS,
+    NORMAL_FAN_OUT,
+    NORMAL_SMALL_FAN_OUT,
+    NORMAL_FAN_IN,
+    NORMAL_GROUP,
+    NORMAL_CASH_WITHDRAWAL,
+    NORMAL_PERIODICAL,
+    NORMAL_FORWARD,
+    NORMAL_MUTUAL,
+    NORMAL_PLUS_MUTUAL
+
+}
