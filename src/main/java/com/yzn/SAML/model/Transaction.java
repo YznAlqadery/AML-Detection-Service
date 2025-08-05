@@ -21,9 +21,9 @@ public class Transaction {
     private LocalDate date;
 
     @Column(name="sender_account")
-    private Integer senderAccount;
+    private Long senderAccount;
     @Column(name = "receiver_account")
-    private Integer receiverAccount;
+    private Long receiverAccount;
 
     private Double amount;
 
@@ -44,14 +44,14 @@ public class Transaction {
     @Column(name = "is_laundering")
     private Integer isLaundering;
 
-    @Column(name = "laundering_type")
+    @Column(name = "laundering_type", length = 50)
     @Enumerated(EnumType.STRING)
     private LaunderingType launderingType;
 
     public Transaction() {
     }
 
-    public Transaction(LocalTime time, LocalDate date, Integer senderAccount, Integer receiverAccount,
+    public Transaction(LocalTime time, LocalDate date, Long senderAccount, Long receiverAccount,
                        Double amount, String paymentCurrency, String receivedCurrency,
                        String senderBankLocation, String receiverBankLocation,
                        PaymentType paymentType, Integer isLaundering, LaunderingType launderingType) {
@@ -93,19 +93,19 @@ public class Transaction {
         this.date = date;
     }
 
-    public Integer getSenderAccount() {
+    public Long getSenderAccount() {
         return senderAccount;
     }
 
-    public void setSenderAccount(Integer senderAccount) {
+    public void setSenderAccount(Long senderAccount) {
         this.senderAccount = senderAccount;
     }
 
-    public Integer getReceiverAccount() {
+    public Long getReceiverAccount() {
         return receiverAccount;
     }
 
-    public void setReceiverAccount(Integer receiverAccount) {
+    public void setReceiverAccount(Long receiverAccount) {
         this.receiverAccount = receiverAccount;
     }
 

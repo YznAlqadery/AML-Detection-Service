@@ -8,5 +8,5 @@ public enum PaymentType {
     CREDIT_CARD,
     DEBIT_CARD,
     CASH_WITHDRAWAL,
-
+    SCATTER_GATHER
 }
