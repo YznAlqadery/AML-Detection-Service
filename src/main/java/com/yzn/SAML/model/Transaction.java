@@ -6,6 +6,7 @@ import com.yzn.SAML.model.enums.PaymentType;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Entity
@@ -47,6 +48,9 @@ public class Transaction {
     @Column(name = "laundering_type", length = 50)
     @Enumerated(EnumType.STRING)
     private LaunderingType launderingType;
+
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
 
     public Transaction() {
     }
