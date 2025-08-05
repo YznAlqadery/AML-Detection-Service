@@ -51,12 +51,7 @@ public class TransactionService {
         transaction.setReceiverBankLocation(updatedTransaction.getReceiverBankLocation() != null ? updatedTransaction.getReceiverBankLocation(): transaction.getReceiverBankLocation());
         transaction.setPaymentType(
                 updatedTransaction.getPaymentType() != null
-                        ? PaymentType.valueOf(
-                        updatedTransaction.getPaymentType()
-                                .toString()
-                                .toUpperCase()
-                                .replaceAll("[\\s-]", "_")
-                )
+                        ? updatedTransaction.getPaymentType()
                         : transaction.getPaymentType()
         );
         transaction.setIsLaundering(
@@ -67,12 +62,7 @@ public class TransactionService {
 
         transaction.setLaunderingType(
                 updatedTransaction.getLaunderingType() != null
-                        ? LaunderingType.valueOf(
-                        updatedTransaction.getLaunderingType()
-                                .toString()
-                                .toUpperCase()
-                                .replaceAll("[\\s-]", "_")
-                )
+                        ? updatedTransaction.getLaunderingType()
                         : transaction.getLaunderingType()
         );
 

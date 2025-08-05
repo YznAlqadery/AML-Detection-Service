@@ -19,8 +19,8 @@ public class TransactionController {
 
 
     @GetMapping("")
-    public ResponseEntity<Page<Transaction>> getTransactions(@RequestParam Integer pageNumber){
-        return ResponseEntity.ok(transactionService.getTransactions(pageNumber));
+    public ResponseEntity<Page<Transaction>> getTransactions(@RequestParam Integer page){
+        return ResponseEntity.ok(transactionService.getTransactions(page));
     }
 
     @GetMapping("/{id}")
