@@ -17,14 +17,15 @@ public class TransactionScheduler {
     private final TransactionProducer transactionProducer;
 
 
+    // Constructor Injection
     public TransactionScheduler(TransactionRepository transactionRepository, TransactionProducer transactionProducer) {
         this.transactionRepository = transactionRepository;
         this.transactionProducer = transactionProducer;
     }
 
-    @Scheduled(cron = "0 */2 * * * *")
+    @Scheduled(cron = "*/30 * * * * *") // --> This means every 30 seconds it will rerun
     public void publishTransactionToKafka(){
-        LocalDateTime twoMinutesBefore = LocalDateTime.now().minusMinutes(2);
+        LocalDateTime twoMinutesBefore = LocalDateTime.now().minusSeconds(30);
         List<Transaction> transactions = transactionRepository.findByCreatedAtAfter(twoMinutesBefore);
         transactions.forEach(transactionProducer::publishTransaction);
     }

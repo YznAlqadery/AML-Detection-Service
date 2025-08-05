@@ -13,6 +13,7 @@ public class TransactionProducer {
     private final KafkaTemplate<String, Transaction> kafkaTemplate;
 
 
+    // Constructor Injection
     public TransactionProducer(KafkaTemplate<String, Transaction> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }

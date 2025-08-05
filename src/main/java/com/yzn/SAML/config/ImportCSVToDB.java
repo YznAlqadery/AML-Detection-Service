@@ -41,8 +41,6 @@ public class ImportCSVToDB implements CommandLineRunner {
             List<Transaction> batch = new ArrayList<>();
             int batchSize = 5000;
 
-            //int total = 0;
-
             while ((line = bufferedReader.readLine()) != null){
                 String[] columns = line.split(",",-1);
 
@@ -65,16 +63,12 @@ public class ImportCSVToDB implements CommandLineRunner {
 
                 if(batch.size() >= batchSize){
                     transactionRepository.saveAll(batch);
-                    //total += batch.size();
                     batch.clear();
-                    //System.out.println("Imported so far: " + total);
                 }
             }
             if (!batch.isEmpty()) {
                 transactionRepository.saveAll(batch);
-                //total += batch.size();
             }
-            //System.out.println("Import finished. Total imported: " + total);
         }catch (IOException exception){
             throw new Exception(exception);
         }

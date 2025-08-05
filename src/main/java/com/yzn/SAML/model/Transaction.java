@@ -4,6 +4,7 @@ package com.yzn.SAML.model;
 import com.yzn.SAML.model.enums.LaunderingType;
 import com.yzn.SAML.model.enums.PaymentType;
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -49,7 +50,8 @@ public class Transaction {
     @Enumerated(EnumType.STRING)
     private LaunderingType launderingType;
 
-    @Column(name = "created_at")
+    @CreationTimestamp
+    @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
     public Transaction() {
