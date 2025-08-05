@@ -18,10 +18,10 @@ public class TransactionProducer {
     }
 
     public void publishTransaction(Transaction transaction){
-        Message<Transaction> message = MessageBuilder
-                .withPayload(transaction)
-                .build();
+//        Message<Transaction> message = MessageBuilder
+//                .withPayload(transaction)
+//                .build();
 
-        kafkaTemplate.send(message);
+        kafkaTemplate.send("transaction-topic",transaction);
     }
 }
