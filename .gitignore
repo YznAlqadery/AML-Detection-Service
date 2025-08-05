@@ -34,3 +34,7 @@ build/
 
 # Ignore Spring Boot configuration
 src/main/resources/application.properties
+
+# Ignore large dataset
+SAML-D.csv
+
