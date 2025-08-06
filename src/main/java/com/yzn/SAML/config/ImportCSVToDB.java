@@ -11,6 +11,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +28,8 @@ public class ImportCSVToDB implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        String filePath = "C:\\Users\\yazan\\Desktop\\Backend\\SpringBoot\\SAML\\SAML-D.csv";
+        String filePath = "C:\\Users\\yazan\\Desktop\\Backend\\SpringBoot\\Mircoservices\\SAML\\SAML-D.csv";
+
 
         if(transactionRepository.count() > 0){
             return;
@@ -59,6 +61,10 @@ public class ImportCSVToDB implements CommandLineRunner {
                 );
                 transaction.setIsLaundering(Integer.parseInt(columns[10]));
                 transaction.setLaunderingType(LaunderingType.valueOf(columns[11].toUpperCase().replaceAll("[\\s-]", "_")));
+
+                transaction.setCreatedAt(LocalDateTime.now());
+
+
                 batch.add(transaction);
 
                 if(batch.size() >= batchSize){

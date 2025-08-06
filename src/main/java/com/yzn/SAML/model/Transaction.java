@@ -54,6 +54,8 @@ public class Transaction {
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
+
+
     public Transaction() {
     }
 
@@ -177,6 +179,14 @@ public class Transaction {
 
     public void setLaunderingType(LaunderingType launderingType) {
         this.launderingType = launderingType;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
     @Override
